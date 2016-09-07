@@ -105,7 +105,7 @@ bool checkWord(string selectedWord) //CHECKS WORD FOR ?
 	return isGuessed;
 }
 
-void addLimbsForWrongGuess(int guessCount)
+void addLimbsForWrongGuess(int guessCount) //ADDS LIMBS FOR EACH WRONG GUESS
 {
 	if (guessCount == 1)
 	{
@@ -158,8 +158,8 @@ void hangman() //HANGMAN GAME
 	printWelcomeMessage(); //PRINTS WELCOME MESSAGE
 	printDirections(); //PRINTS OPTIONAL DIRECTIONS FOR USER
 
-	string selectedWord = wordBank[1]; //WILL ADD RANDOM NUMBER for this later...
-	int length = selectedWord.size();
+	string selectedWord = selectRandomWord(); //GETS RANDOM WORD
+	int length = selectedWord.size(); //GETS LENGTH OF SELECTED WORD
 	selectedWord = toUpper(selectedWord); // MAKE IT ALL CAPS, for failsafe
 
 	writeLine(selectedWord); //SOMEWHERE ABOUT HERE IT MESSES UP? LOL
@@ -200,5 +200,5 @@ void hangman() //HANGMAN GAME
 int main()
 {
 	hangman();
-    return 0;
+    	return 0;
 }
