@@ -18,8 +18,10 @@ void printWelcomeMessage() //PRINTS WELCOME MESSAGE
 
 void printDirections() //PRINTS DIRECTIONS
 {
-	string moo = "MOO";
-	moo = toLower(moo);
+	cout << "This Program Will Randomly Select A Word.\n"
+	cout << "You Will Guess Letters To Try And Solve The Word.\n"
+	cout << "You Can Only Have 6 Wrong Guesses.\n"
+	cout << "Good Luck!"
 }
 
 string selectRandomWord() //RANDOMLY SELECTS A WORD FROM THE WORDBANK
@@ -155,10 +157,27 @@ void hangman() //HANGMAN GAME
 	bool isCompleteGuessed = false;
 	int numOfGuesses = 0;
 	int numWrong = 0;
+	int userDumbOrSmart;
 
 	printWelcomeMessage(); //PRINTS WELCOME MESSAGE
-	printDirections(); //PRINTS OPTIONAL DIRECTIONS FOR USER
-
+	
+	cout << "Please Enter 1 To View Directions, Or Enter 2 To Skip . . . \n"; //PROMPTS FOR DIRECTIONS, ERROR CHECKS
+	cin >> userDumbOrSmart;
+	while((userDumbOrSmart != 1) || (userDumbOrSmart != 2))
+	{
+		cout << "Your Entry Is Not Valid, Try Again . . . \n";
+		cin >> userDumbOrSmart;
+	}
+	
+	if(userDumbOrSmart == 1)
+	{
+		printDirections(); //PRINTS OPTIONAL DIRECTIONS FOR USER	
+	}
+	else
+	{
+		cout << "Skipping Directions . . . \n";
+	}
+	
 	string selectedWord = selectRandomWord(); //GETS RANDOM WORD
 	int length = selectedWord.size(); //GETS LENGTH OF SELECTED WORD
 	selectedWord = toUpper(selectedWord); // MAKE IT ALL CAPS, for failsafe
