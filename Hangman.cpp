@@ -2,7 +2,7 @@
 //
 
 #include "stdafx.h"
-#include "Allen.h"
+#include "Allen.h" //My useful library
 #include <string>
 #include <iostream>
 using namespace std;
@@ -76,7 +76,7 @@ void hangman()
 	int length = selectedWord.size();
 	selectedWord = toUpper(selectedWord); // MAKE IT ALL CAPS, for failsafe
 
-	writeLine(selectedWord);
+	writeLine(selectedWord); //SOMEWHERE ABOUT HERE IT MESSES UP? LOL
 
 
 	initializeUnderscores(length);
