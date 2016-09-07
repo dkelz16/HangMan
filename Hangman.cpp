@@ -2,7 +2,7 @@
 //
 
 #include "stdafx.h"
-#include "Allen.h" //ALLENS USEFUL LIBRARY
+#include "Allen.h" //My useful library
 #include <string>
 #include <iostream>
 using namespace std;
@@ -90,7 +90,7 @@ void printUnderscores(int length) //PRINTS UNDERSCORES ON THE CONSOLE WINDOW
 	writeLine("");
 }
 
-bool checkWord(string selectedWord) //CHECKS WORD FOR ?
+bool checkWord(string selectedWord) //CHECKS IF WORD HAS BEEN GUESSED
 {
 	bool isGuessed = true;
 	
@@ -162,22 +162,20 @@ void hangman() //HANGMAN GAME
 	int length = selectedWord.size(); //GETS LENGTH OF SELECTED WORD
 	selectedWord = toUpper(selectedWord); // MAKE IT ALL CAPS, for failsafe
 
-	writeLine(selectedWord); //SOMEWHERE ABOUT HERE IT MESSES UP? LOL
+	writeLine(selectedWord); //THIS IS HERE FOR SHITS AND GIGGLES
 
+	initializeUnderscores(length);
 
-	initializeUnderscores(length); //INITIALIZES UNDERSCORES
-
-	while ((!isCompleteGuessed) || //WHILE GAME IS STILL IN PLAY
+	while ((!isCompleteGuessed) ||
 		   (numOfGuesses < 6))
 	{
 		usedGuess = false;
 
-		printUnderscores(length); //PRINTS UNDERSCORES
+		printUnderscores(length);
 
-		userGuess = getUserGuess(); //GETS USER GUESS
-		numOfGuesses = numOfGuesses + 1; //INCREMENTS TOTAL GUESSES
+		userGuess = getUserGuess();
+		numOfGuesses = numOfGuesses + 1; //FOR SOME REASON, IT INCEMENTS by 2
 		
-		writeLine(toUpper("Joiner")); //CAPITALIZES WORD
 		writeLine(numOfGuesses);
 
 		userGuess = toUpper(userGuess);
