@@ -2,7 +2,7 @@
 //
 
 #include "stdafx.h"
-#include "Allen.h" //My useful library
+#include "Allen.h" //ALLENS USEFUL LIBRARY
 #include <string>
 #include <iostream>
 using namespace std;
@@ -165,19 +165,19 @@ void hangman() //HANGMAN GAME
 	writeLine(selectedWord); //SOMEWHERE ABOUT HERE IT MESSES UP? LOL
 
 
-	initializeUnderscores(length);
+	initializeUnderscores(length); //INITIALIZES UNDERSCORES
 
-	while ((!isCompleteGuessed) ||
+	while ((!isCompleteGuessed) || //WHILE GAME IS STILL IN PLAY
 		   (numOfGuesses < 6))
 	{
 		usedGuess = false;
 
-		printUnderscores(length);
+		printUnderscores(length); //PRINTS UNDERSCORES
 
-		userGuess = getUserGuess();
-		numOfGuesses = numOfGuesses + 1;
+		userGuess = getUserGuess(); //GETS USER GUESS
+		numOfGuesses = numOfGuesses + 1; //INCREMENTS TOTAL GUESSES
 		
-		writeLine(toUpper("Joiner"));
+		writeLine(toUpper("Joiner")); //CAPITALIZES WORD
 		writeLine(numOfGuesses);
 
 		userGuess = toUpper(userGuess);
