@@ -66,7 +66,7 @@ string upperCaseFirst(string value)
 		if (i == 0)
 		{
 			if (((int)value[i] >= 97) &&
-				((int)value[i] <= 112))
+				((int)value[i] <= 122))
 			{
 				value[i] = (char)((int)value[i] - 32);
 			}
@@ -81,7 +81,7 @@ string toUpper(string value)
 	for (int i = 0; i < value.size(); i++)
 	{
 		if (((int)value[i] >= 97) &&
-			((int)value[i] <= 112))
+			((int)value[i] <= 122))
 		{
 			value[i] = (char)((int)value[i] - 32);
 		}
@@ -104,7 +104,7 @@ char toLower(char value)
 char toUpper(char value)
 {
 	if (((int)value >= 97) &&
-		((int)value <= 112))
+		((int)value <= 122))
 	{
 		value = (char)((int)value - 32);
 	}
