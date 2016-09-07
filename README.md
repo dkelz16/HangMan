@@ -144,13 +144,15 @@ void addLimbsForWrongGuess(int guessCount)
 void hangman()
 {
     int boolIndex = 0;
-    Int wrongGuessCount = 0; // < ----- ADDED
+    int wrongGuessCount = 0; //TRACKS WRONG GUESSES
+    
 
-    printWelcomeMessage(); // < ----- ADDED
-    printDirections();
+    printWelcomeMessage(); //PRINTS WELCOME MESSAGE
+    
+    printDirections(); //OPTIONAL PRINT DIRECTIONS
 
-    string selectedWord = selectRandomWord(); // Allen i just changed this < ---- 
-    int length = selectedWord.size();
+    string selectedWord = selectRandomWord(); //SELECTS RANDOM WORD FROM WORD BANK 
+    int length = selectedWord.size(); // FIGURES OUT THE LENGTH OF THE WORD
 
     INSERT WHILE LOOP HERE  ( while guessCount < 6)
 
