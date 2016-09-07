@@ -154,6 +154,7 @@ void hangman() //HANGMAN GAME
 	bool usedGuess = false;
 	bool isCompleteGuessed = false;
 	int numOfGuesses = 0;
+	int numWrong = 0;
 
 	printWelcomeMessage(); //PRINTS WELCOME MESSAGE
 	printDirections(); //PRINTS OPTIONAL DIRECTIONS FOR USER
@@ -187,6 +188,11 @@ void hangman() //HANGMAN GAME
 			{
 				underscores[i] = userGuess;
 				usedGuess = true;
+			}
+			else
+			{
+				numWrong++;
+				addLimbsForWrongGuess(numWrong);
 			}
 		}
 
