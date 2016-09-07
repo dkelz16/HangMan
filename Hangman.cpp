@@ -5,6 +5,8 @@
 #include "Allen.h" //My useful library
 #include <string>
 #include <iostream>
+#include <ctime>
+#include <cstdlib>
 using namespace std;
 
 string usedWords[];
@@ -18,10 +20,10 @@ void printWelcomeMessage() //PRINTS WELCOME MESSAGE
 
 void printDirections() //PRINTS DIRECTIONS
 {
-	cout << "This Program Will Randomly Select A Word.\n"
-	cout << "You Will Guess Letters To Try And Solve The Word.\n"
-	cout << "You Can Only Have 6 Wrong Guesses.\n"
-	cout << "Good Luck!"
+	cout << "This Program Will Randomly Select A Word.\n";
+	cout << "You Will Guess Letters To Try And Solve The Word.\n";
+	cout << "You Can Only Have 6 Wrong Guesses.\n";
+	cout << "Good Luck!";
 }
 
 string selectRandomWord() //RANDOMLY SELECTS A WORD FROM THE WORDBANK
