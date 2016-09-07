@@ -7,18 +7,62 @@
 #include <iostream>
 using namespace std;
 
-string wordBank[] = { "Joiner", "Network", "Object", "Programming" };
 string usedWords[];
 bool usedLetters[26];
 char underscores[15];
 
-void printDirections()
+void printWelcomeMessage() //PRINTS WELCOME MESSAGE
+{
+	cout << "Welcome To Hangman v 1.0 . . . \n";
+}
+
+void printDirections() //PRINTS DIRECTIONS
 {
 	string moo = "MOO";
 	moo = toLower(moo);
 }
 
-char getUserGuess()
+string selectRandomWord() //RANDOMLY SELECTS A WORD FROM THE WORDBANK
+{
+	string randomWord;
+	int randomNum;
+
+	srand(time(0));
+	randomNum = rand() % 6 + 1;
+
+	if (randomNum == 1)
+	{
+		randomWord = "Programming";
+	}
+	else if (randomNum == 2)
+	{
+		randomWord = "Joiner";
+	}
+	else if (randomNum == 3)
+	{
+		randomWord = "Network";
+	}
+	else if (randomNum == 4)
+	{
+		randomWord = "Object";
+	}
+	else if (randomNum == 5)
+	{
+		randomWord = "Method";
+	}
+	else if (randomNum == 6)
+	{
+		randomWord = "Vector";
+	}
+	else
+	{
+		cout << "This Should Ever Appear . . .";
+	}
+
+	return randomWord;
+}
+
+char getUserGuess() //GETS USER GUESS
 {
 	writeLine("");
 	writeLine("Please enter your guess:");
@@ -26,7 +70,7 @@ char getUserGuess()
 	return guess;
 }
 
-void initializeUnderscores(int length)
+void initializeUnderscores(int length) //INITIALIZES UNDERSCORES
 {
 	for (int i = 0; i < length; i++)
 	{
@@ -34,7 +78,7 @@ void initializeUnderscores(int length)
 	}
 }
 
-void printUnderscores(int length)
+void printUnderscores(int length) //PRINTS UNDERSCORES ON THE CONSOLE WINDOW
 {
 
 	for (int i = 0; i < length; i++)
@@ -46,7 +90,7 @@ void printUnderscores(int length)
 	writeLine("");
 }
 
-bool checkWord(string selectedWord)
+bool checkWord(string selectedWord) //CHECKS WORD FOR ?
 {
 	bool isGuessed = true;
 	
@@ -61,7 +105,49 @@ bool checkWord(string selectedWord)
 	return isGuessed;
 }
 
-void hangman()
+void addLimbsForWrongGuess(int guessCount)
+{
+	if (guessCount == 1)
+	{
+		cout << "       " << endl;
+		cout << "       " << endl;
+		cout << "    \  " << endl;
+
+	}
+	else if (guessCount == 2)
+	{
+		cout << "       " << endl;
+		cout << "       " << endl;
+		cout << "  / \  " << endl;
+	}
+	else if (guessCount == 3)
+	{
+		cout << "       " << endl;
+		cout << "   |   " << endl;
+		cout << "  / \  " << endl;
+	}
+	else if (guessCount == 4)
+	{
+		cout << "       " << endl;
+		cout << " / |   " << endl;
+		cout << "  / \  " << endl;
+	}
+	else if (guessCount == 5)
+	{
+		cout << "       " << endl;
+		cout << " / | \ " << endl;
+		cout << "  / \  " << endl;
+	}
+	else if (guessCount == 6)
+	{
+		cout << "   O   " << endl;
+		cout << " / | \ " << endl;
+		cout << "  / \  " << endl;
+	}
+}
+
+
+void hangman() //HANGMAN GAME
 {
 	int boolIndex = 0;
 	char userGuess = ' ';
@@ -69,8 +155,8 @@ void hangman()
 	bool isCompleteGuessed = false;
 	int numOfGuesses = 0;
 
-	//print welcome message
-	printDirections();
+	printWelcomeMessage(); //PRINTS WELCOME MESSAGE
+	printDirections(); //PRINTS OPTIONAL DIRECTIONS FOR USER
 
 	string selectedWord = wordBank[1]; //WILL ADD RANDOM NUMBER for this later...
 	int length = selectedWord.size();
