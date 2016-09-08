@@ -70,7 +70,7 @@ char getUserGuess() //GETS USER GUESS
 {
 	writeLine("");
 	writeLine("Please enter your guess:");
-	char guess = getchar();
+	char guess = inputFirstOne();
 	return guess;
 }
 
@@ -97,7 +97,7 @@ void printUnderscores(int length) //PRINTS UNDERSCORES ON THE CONSOLE WINDOW
 bool checkWord(string selectedWord) //CHECKS IF WORD HAS BEEN GUESSED
 {
 	bool isGuessed = true;
-	
+
 	for (int i = 0; i < selectedWord.size(); i++)
 	{
 		if (underscores[i] == '_')
@@ -162,16 +162,17 @@ void hangman() //HANGMAN GAME
 	int userDumbOrSmart;
 
 	printWelcomeMessage(); //PRINTS WELCOME MESSAGE
-	
+
 	cout << "Please Enter 1 To View Directions, Or Enter 2 To Skip . . . \n"; //PROMPTS FOR DIRECTIONS, ERROR CHECKS
-	cin >> userDumbOrSmart;
-	while((userDumbOrSmart != 1) && (userDumbOrSmart != 2))
+	userDumbOrSmart = inputFirstOne();
+
+	while ((userDumbOrSmart != '1') && (userDumbOrSmart != '2'))
 	{
 		cout << "Your Entry Is Not Valid, Try Again . . . \n";
-		cin >> userDumbOrSmart;
+		userDumbOrSmart = inputFirstOne();
 	}
-	
-	if(userDumbOrSmart == 1)
+
+	if (userDumbOrSmart == 1)
 	{
 		printDirections(); //PRINTS OPTIONAL DIRECTIONS FOR USER	
 	}
@@ -179,7 +180,7 @@ void hangman() //HANGMAN GAME
 	{
 		cout << "Skipping Directions . . . \n";
 	}
-	
+
 	string selectedWord = selectRandomWord(); //GETS RANDOM WORD
 	int length = selectedWord.size(); //GETS LENGTH OF SELECTED WORD
 	selectedWord = toUpper(selectedWord); // MAKE IT ALL CAPS, for failsafe
@@ -188,17 +189,15 @@ void hangman() //HANGMAN GAME
 
 	initializeUnderscores(length);
 
-	while ((!isCompleteGuessed) ||
-		   (numOfGuesses < 6))
+	while ((!isCompleteGuessed) &&
+		(numOfGuesses < 6))
 	{
 		usedGuess = false;
 
 		printUnderscores(length);
 
 		userGuess = getUserGuess();
-		numOfGuesses = numOfGuesses + 1; //FOR SOME REASON, IT INCEMENTS by 2
-		
-		writeLine(numOfGuesses);
+		numOfGuesses = numOfGuesses + 1;
 
 		userGuess = toUpper(userGuess);
 		boolIndex = ((int)userGuess - 97); //Convert char to int, use ASCII for index number
@@ -225,5 +224,5 @@ void hangman() //HANGMAN GAME
 int main()
 {
 	hangman();
-    	return 0;
+	return 0;
 }
