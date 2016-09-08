@@ -165,7 +165,7 @@ void hangman() //HANGMAN GAME
 	
 	cout << "Please Enter 1 To View Directions, Or Enter 2 To Skip . . . \n"; //PROMPTS FOR DIRECTIONS, ERROR CHECKS
 	cin >> userDumbOrSmart;
-	while((userDumbOrSmart != 1) || (userDumbOrSmart != 2))
+	while((userDumbOrSmart != 1) && (userDumbOrSmart != 2))
 	{
 		cout << "Your Entry Is Not Valid, Try Again . . . \n";
 		cin >> userDumbOrSmart;
