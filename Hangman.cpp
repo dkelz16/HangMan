@@ -20,7 +20,7 @@ void printWelcomeMessage() //PRINTS WELCOME MESSAGE
 
 void printDirections() //PRINTS DIRECTIONS
 {
-	cout << "This Program Will Randomly Select A Word.\n";
+	cout << "\nThis Program Will Randomly Select A Word.\n";
 	cout << "You Will Guess Letters To Try And Solve The Word.\n";
 	cout << "You Can Only Have 6 Wrong Guesses.\n";
 	cout << "Good Luck!";
@@ -168,7 +168,7 @@ void hangman() //HANGMAN GAME
 
 	while ((userDumbOrSmart != '1') && (userDumbOrSmart != '2'))
 	{
-		cout << "Your Entry Is Not Valid, Try Again . . . \n";
+		cout << "\nYour Entry Is Not Valid, Try Again . . . \n";
 		userDumbOrSmart = inputFirstOne();
 	}
 
@@ -178,7 +178,7 @@ void hangman() //HANGMAN GAME
 	}
 	else if(userDumbOrSmart == '2')
 	{
-		cout << "Skipping Directions . . . \n";
+		cout << "\nSkipping Directions . . . \n";
 	}
 
 	string selectedWord = selectRandomWord(); //GETS RANDOM WORD
