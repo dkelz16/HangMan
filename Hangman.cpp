@@ -172,11 +172,11 @@ void hangman() //HANGMAN GAME
 		userDumbOrSmart = inputFirstOne();
 	}
 
-	if (userDumbOrSmart == 1)
+	if (userDumbOrSmart == '1')
 	{
 		printDirections(); //PRINTS OPTIONAL DIRECTIONS FOR USER	
 	}
-	else
+	else if(userDumbOrSmart == '2')
 	{
 		cout << "Skipping Directions . . . \n";
 	}
