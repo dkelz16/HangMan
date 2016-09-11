@@ -208,7 +208,7 @@ void hangman() //HANGMAN GAME
 	initializeUnderscores(length);
 
 	while ((!isCompleteGuessed) &&
-		(numOfGuesses < 6))
+		(numWrong < 6))
 	{
 		usedGuess = false;
 
@@ -225,7 +225,7 @@ void hangman() //HANGMAN GAME
 		numOfGuesses = numOfGuesses + 1;
 
 		userGuess = toUpper(userGuess);
-		boolIndex = ((int)userGuess - 97); //Convert char to int, use ASCII for index number
+		boolIndex = ((int)userGuess - 65 ); //Convert char to int, use ASCII for index number
 
                 cout << "\n\nUsed Letters:\n";
                 cout << "-----------------\n";
@@ -239,11 +239,12 @@ void hangman() //HANGMAN GAME
 				underscores[i] = userGuess;
 				usedGuess = true;
 			}
-			else
-			{
-				numWrong++;
-				addLimbsForWrongGuess(numWrong);
-			}
+		}
+
+                if (!usedGuess)
+                {
+                    numWrong++;
+		    addLimbsForWrongGuess(numWrong);
 		}
 
 		isCompleteGuessed = checkWord(selectedWord);
