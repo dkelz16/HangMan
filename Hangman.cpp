@@ -264,7 +264,7 @@ void playAgain()
     while ((answer != 'Y') && (answer != 'N'))
     {
         cout << "I'm sorry, i did not undersand.\n";
-        cout << "Would you like to play again (Y/N)?\n";
+        cout << "\nWould you like to play again (Y/N)?\n";
         answer = inputFirstOne();
         answer = toUpper(answer);
     }
