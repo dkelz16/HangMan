@@ -13,6 +13,24 @@ string usedWords[];
 bool usedLetters[26];
 char underscores[15];
 
+
+void printUsedLetters()
+{
+    char print = ' ';
+
+    for (int i = 0; i < 26; i++)
+    {
+        if (usedLetters[i] == true)
+        {
+            print = (char)(i + 65);
+            cout << print;
+            cout << " ";
+        }
+    }
+
+    cout << "\n";
+}
+
 void printWelcomeMessage() //PRINTS WELCOME MESSAGE
 {
 	cout << "Welcome To Hangman v 1.0 . . . \n";
@@ -202,6 +220,11 @@ void hangman() //HANGMAN GAME
 		userGuess = toUpper(userGuess);
 		boolIndex = ((int)userGuess - 97); //Convert char to int, use ASCII for index number
 
+                cout << "\n\nUsed Letters:\n";
+                cout << "-----------------\n";
+                usedLetters[boolIndex] = true;
+                printUsedLetters();
+
 		for (int i = 0; i < length; i++)
 		{
 			if (userGuess == selectedWord[i])
@@ -221,8 +244,37 @@ void hangman() //HANGMAN GAME
 
 }
 
+void playAgain()
+{
+    bool playOnceMore = false;
+    char answer = ' ';
+
+    cout << "Would you like to play again (Y/N)?\n";
+    answer = inputFirstOne();
+    answer = toUpper(answer);
+
+    while ((answer != 'Y') && (answer != 'N'))
+    {
+        cout << "I'm sorry, i did not undersand.\n";
+        cout << "Would you like to play again (Y/N)?\n";
+        answer = inputFirstOne();
+        answer = toUpper(answer);
+    }
+
+    if (answer == 'Y')
+    {
+        hangman();
+    }
+    else
+    {
+        cout << "\nThanks For Playing!!";
+    }
+}
+
 int main()
 {
 	hangman();
+        playAgain();
+
 	return 0;
 }
