@@ -215,6 +215,13 @@ void hangman() //HANGMAN GAME
 		printUnderscores(length);
 
 		userGuess = getUserGuess();
+		
+		while (!isalpha(userGuess)) //EROOR CHECKING TO MAKE SURE THE ENTRY IS A LETTER
+		{
+			cout << "\nYou Must Enter A Letter From A - Z . . . \n";
+			userGuess = getUserGuess();
+		}
+		
 		numOfGuesses = numOfGuesses + 1;
 
 		userGuess = toUpper(userGuess);
