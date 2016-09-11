@@ -133,38 +133,38 @@ void addLimbsForWrongGuess(int guessCount) //ADDS LIMBS FOR EACH WRONG GUESS
 	{
 		cout << "       " << endl;
 		cout << "       " << endl;
-		cout << "    \  " << endl;
+		cout << "   \\  " << endl;
 
 	}
 	else if (guessCount == 2)
 	{
 		cout << "       " << endl;
 		cout << "       " << endl;
-		cout << "  / \  " << endl;
+		cout << "  /\\  " << endl;
 	}
 	else if (guessCount == 3)
 	{
 		cout << "       " << endl;
 		cout << "   |   " << endl;
-		cout << "  / \  " << endl;
+		cout << "  /\\  " << endl;
 	}
 	else if (guessCount == 4)
 	{
 		cout << "       " << endl;
 		cout << " / |   " << endl;
-		cout << "  / \  " << endl;
+		cout << "  /\\  " << endl;
 	}
 	else if (guessCount == 5)
 	{
 		cout << "       " << endl;
-		cout << " / | \ " << endl;
-		cout << "  / \  " << endl;
+		cout << " / |\\ " << endl;
+		cout << "  /\\  " << endl;
 	}
 	else if (guessCount == 6)
 	{
 		cout << "   O   " << endl;
-		cout << " / | \ " << endl;
-		cout << "  / \  " << endl;
+		cout << " / |\\ " << endl;
+		cout << "  /\\  " << endl;
 	}
 }
 
