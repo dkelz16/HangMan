@@ -33,7 +33,7 @@ void printUsedLetters()
 
 void printWelcomeMessage() //PRINTS WELCOME MESSAGE
 {
-	cout << "Welcome To Hangman v 1.0 . . . \n";
+	cout << "Welcome To Hangman v 1.0 . . . \n\n";
 }
 
 void printDirections() //PRINTS DIRECTIONS
