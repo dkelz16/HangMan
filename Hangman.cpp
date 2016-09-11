@@ -41,7 +41,7 @@ void printDirections() //PRINTS DIRECTIONS
 	cout << "\nThis Program Will Randomly Select A Word.\n";
 	cout << "You Will Guess Letters To Try And Solve The Word.\n";
 	cout << "You Can Only Have 6 Wrong Guesses.\n";
-	cout << "Good Luck!";
+	cout << "Good Luck!\n\n";
 }
 
 string selectRandomWord() //RANDOMLY SELECTS A WORD FROM THE WORDBANK
@@ -203,7 +203,7 @@ void hangman() //HANGMAN GAME
 	int length = selectedWord.size(); //GETS LENGTH OF SELECTED WORD
 	selectedWord = toUpper(selectedWord); // MAKE IT ALL CAPS, for failsafe
 
-	writeLine(selectedWord); //THIS IS HERE FOR SHITS AND GIGGLES
+	writeLine(selectedWord); //THIS IS HERE FOR SHITS AND GIGGLES : SIMPLY PRINTS THE FULL WORD
 
 	initializeUnderscores(length);
 
