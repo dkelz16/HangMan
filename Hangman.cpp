@@ -14,6 +14,19 @@ bool usedLetters[26];
 char underscores[15];
 
 
+﻿bool checkIfAlpha(char value)
+{
+    if ((value >= 65) &&
+        (value <= 90))
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
 void printUsedLetters()
 {
     char print = ' ';
@@ -175,9 +188,12 @@ void hangman() //HANGMAN GAME
 	char userGuess = ' ';
 	bool usedGuess = false;
 	bool isCompleteGuessed = false;
+        bool letIsAlpha = false;
 	int numOfGuesses = 0;
 	int numWrong = 0;
 	int userDumbOrSmart;
+
+        
 
 	printWelcomeMessage(); //PRINTS WELCOME MESSAGE
 
@@ -203,8 +219,6 @@ void hangman() //HANGMAN GAME
 	int length = selectedWord.size(); //GETS LENGTH OF SELECTED WORD
 	selectedWord = toUpper(selectedWord); // MAKE IT ALL CAPS, for failsafe
 
-	writeLine(selectedWord); //THIS IS HERE FOR SHITS AND GIGGLES : SIMPLY PRINTS THE FULL WORD
-
 	initializeUnderscores(length);
 
 	while ((!isCompleteGuessed) &&
@@ -215,13 +229,28 @@ void hangman() //HANGMAN GAME
 		printUnderscores(length);
 
 		userGuess = getUserGuess();
+                userGuess = toUpper(userGuess);
 		
-		while (!isalpha(userGuess)) //EROOR CHECKING TO MAKE SURE THE ENTRY IS A LETTER
-		{
-			cout << "\nYou Must Enter A Letter From A - Z . . . \n";
-			userGuess = getUserGuess();
+	        boolIndex = ((int)userGuess - 65);
+                letIsAlpha = checkIfAlpha(userGuess);
+
+                while ((letIsAlpha) && //ERROR CHECKING TO MAKE SURE THE ENTRY IS A LETTER AND NOT USED
+                       (usedLetters[boolIndex]))
+                {
+                    if (letIsAlpha)
+                    {
+                        cout << "\nYou Must Enter A Letter That Has Not Been Used . . .\n";
+                    }
+                    else
+                    {
+                        cout << "\nYou Must Enter A Letter From A - Z . . .\n";
+                    }
+
+                    userGuess = getUserGuess();
+                    userGuess = toUpper(userGuess);
+                    boolIndex = ((int)userGuess - 65);
 		}
-		
+
 		numOfGuesses = numOfGuesses + 1;
 
 		userGuess = toUpper(userGuess);
